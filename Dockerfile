@@ -4,7 +4,7 @@ RUN apt-get install openjdk-17-jdk -y
 COPY . .
 RUN ./gradlew bootJar --no-daemon 
 
-FROM openjdk-17-jdk 
+FROM openjdk-17-jdk-slim 
 EXPOSE 8080
 COPY --from=build /build/libs/hello-world-1.jar app.jar
 
